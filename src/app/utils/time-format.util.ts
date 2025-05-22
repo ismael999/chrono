@@ -1,7 +1,7 @@
 export function formattedTime(time: number): string {
     const totalSeconds = time;
-    const minutes = Math.floor(totalSeconds / 60);
-    const hours = Math.floor(minutes / 60);
+    const minutes = Math.floor(totalSeconds / 60) % 60;
+    const hours = Math.floor(totalSeconds / 3600) % 60;
     const seconds = totalSeconds % 60;
 
     return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
