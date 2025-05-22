@@ -1,0 +1,29 @@
+<div id="timer">
+    <p id="time">{{chornoService.time()}}</p>
+
+    @if (showStatus) {
+        <p id="status" 
+            [class.running]="chornoService.status() == 'RUNNING'"
+            [class.stopped]="chornoService.status() == 'STOPPED'"
+            [class.paused]="chornoService.status() == 'PAUSED'">
+            {{chornoService.status()}}
+        </p>
+    }
+
+    @if (showDirection) {
+        <p id="direction" 
+            [class.up]="chornoService.direction() == directions.UP"
+            [class.down]="chornoService.direction() == directions.DOWN">
+            {{chornoService.directionName()}}
+        </p>
+    }
+
+    <div id="buttons">
+        <button (click)="chornoService.start()">Start</button>
+        <button [disabled]="chornoService.status() !== 'RUNNING'" (click)="chornoService.pause()">Pause</button>
+        <button [disabled]="chornoService.status() !== 'PAUSED'" (click)="chornoService.resume()">Resume</button>
+        <button [disabled]="chornoService.status() == 'STOPPED'" (click)="chornoService.reset()">Reset</button>
+        <button [disabled]="chornoService.direction() == directions.UP || chornoService.status() == 'STOPPED'" (click)="chornoService.up()">Up</button>
+        <button [disabled]="chornoService.direction() == directions.DOWN || chornoService.status() == 'STOPPED'" (click)="chornoService.down()">Down</button>
+    </div>
+</div>

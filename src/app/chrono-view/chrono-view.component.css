@@ -1,0 +1,65 @@
+p {
+    margin: 5px;
+}
+
+#timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+
+#timer #time {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+#status {
+    font-style: italic;
+}
+
+#status {
+    &.running {
+        color: #6db152;
+    }
+    &.stopped {
+        color: #ad3232;
+    }
+    &.paused {
+        color: #d1ae3b;
+    }
+}
+
+#direction {
+    &.up{
+        color: #6db152;
+    }
+    &.down {
+        color: #ad3232;
+    }
+}
+
+
+
+#buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#buttons button {
+    margin: 5px;
+    padding: 8px 13px;
+    font-size: 16px;
+    border: 1px solid #a4a4a4;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#buttons button:disabled {
+    cursor: not-allowed;
+    border: 1px solid #dbdbdb;
+}
